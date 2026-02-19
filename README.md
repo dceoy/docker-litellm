@@ -1,8 +1,7 @@
 # docker-litellm
 
 Dockerfile and Docker Compose configuration for
-[LiteLLM](https://github.com/BerriAI/litellm) proxy server with PostgreSQL
-and Prometheus.
+[LiteLLM](https://github.com/BerriAI/litellm) proxy server.
 
 ## Prerequisites
 
@@ -19,7 +18,7 @@ and Prometheus.
    Set `LITELLM_MASTER_KEY`, `LITELLM_SALT_KEY`, and your LLM API keys in
    `.env`.
 
-2. Edit `config.yaml` to configure your model routing.  See the
+2. Edit `config.yml` to configure your model routing.  See the
    [LiteLLM proxy config docs](https://docs.litellm.ai/docs/proxy/configs)
    for details.
 
@@ -29,12 +28,7 @@ and Prometheus.
 docker compose up -d
 ```
 
-The services will be available at:
-
-| Service    | URL                     |
-|------------|-------------------------|
-| LiteLLM    | http://localhost:4000   |
-| Prometheus | http://localhost:9090   |
+The LiteLLM proxy will be available at http://localhost:4000.
 
 To view logs:
 
@@ -46,10 +40,4 @@ To stop:
 
 ```sh
 docker compose down
-```
-
-To stop and remove volumes:
-
-```sh
-docker compose down -v
 ```
